@@ -1,11 +1,12 @@
-import { Router } from 'express';
+import express from 'express';
+import fetch from 'node-fetch';
 
-const router = Router();
+const router = express.Router();
 
-router.get('/questions', async (req, res) => {
-    const data = await fetch('http://localhost:8000/questions')
-        .then(data => data.json());
-    res.send(data);
+router.get('/', async (req, res) => {
+    const data = await fetch('http://localhost:8080/questions')
+    .then(data => data.json());
+    res.json(data);
 });
 
 export default router;
