@@ -2,6 +2,7 @@
   "name": "project-finale",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -24,7 +25,9 @@
     "start": "BROWSER=none react-scripts start",
     "build": "BROWSER=none react-scripts build",
     "test": "BROWSER=none react-scripts test",
-    "eject": "BROWSER=none react-scripts eject"
+    "eject": "BROWSER=none react-scripts eject",
+    "db": "json-server --watch server/data.json --port 8000",
+    "server": "nodemon server/server.js"
   },
   "eslintConfig": {
     "extends": [
