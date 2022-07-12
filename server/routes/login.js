@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     const loginData = req.body;
     try {
         const { error } = login_schema.validate(loginData);
-        if (error) return res.status(400).send(`Error: ${error.details[0].message}`);
+        if (error) return res.status(400).send({ error : `Error: ${error.details[0].message}`});
 
         const user = await fetch('http://localhost:8080/users')
         .then(res => res.json())
@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
             return data.find(user => user.username === String([loginData.username]));
         });
         
-        if (!user) return res.status(400).send(`Wrong username.`);
+        if (!user) return res.status(400).send({ error : `Wrong username.`});
 
         const match = await bcrypt.compare(loginData.password, user.password);
         if (match) {
@@ -32,11 +32,14 @@ router.post('/', async (req, res) => {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === "production",
             })
-            .status(200)
-            .send({ msg : `${loginData.username} successfully logged in!` });
+            .status(200) // negauna react'e status'o - why ???
+            .send({
+                msg : `${loginData.username} successfully logged in!`,
+                token : token
+            });
             // .send({msg : `${loginData.username} successfully logged in!`, token : token});
         } else {
-            res.status(400).send("Wrong password.");
+            res.status(400).send({error : "Wrong password."});
         } 
     } catch (error) {
         res.status(400).send(`${error}`);
