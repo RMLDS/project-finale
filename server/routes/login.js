@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
         if (match) {
             const token = jwt.sign({
                 id : user.id,
-                username: loginData.username,
+                username : loginData.username,
                 email : loginData.email
             }, process.env.SECRET_TOKEN, {expiresIn : '30s'});
             // console.log(token);
@@ -33,7 +33,8 @@ router.post('/', async (req, res) => {
                 secure: process.env.NODE_ENV === "production",
             })
             .status(200)
-            .send({msg : `${loginData.username} successfully logged in!`, token : token})
+            .send({ msg : `${loginData.username} successfully logged in!` });
+            // .send({msg : `${loginData.username} successfully logged in!`, token : token});
         } else {
             res.status(400).send("Wrong password.");
         } 
