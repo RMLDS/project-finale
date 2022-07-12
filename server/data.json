@@ -22,16 +22,16 @@
   ],
   "users": [
     {
-      "id": 1,
-      "email": "xxx@xxx.com",
-      "username": "xxx",
-      "password": "xxxxx"
-    },
-    {
       "id": 2,
       "email": "xoxoxo@xxx.com",
       "username": "xoxoxo",
       "password": "xoxoxo"
+    },
+    {
+      "email": "xxx@xxx.com",
+      "username": "xxx",
+      "password": "$2b$10$JfOlYVCjwzri4kNvAvdSau6141RR0pGTtXUnfCbd88uALCNLaQaj6",
+      "id": 3
     }
   ]
 }

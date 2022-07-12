@@ -6,12 +6,17 @@ import registerRouter from './routes/register.js';
 import questionsRouter from './routes/questions.js';
 import answersRouter from './routes/answers.js';
 import { expressCspHeader } from 'express-csp-header';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 const PORT = process.env.SERVERPORT || 5050;
 
 app.use(cors());
+app.use(cookieParser());
 app.use(express.json());
+app.use(express.urlencoded({
+  extended: false 
+}));
 app.use(expressCspHeader({
   directives: {
       'img-src': ['data:', 'images.com']
