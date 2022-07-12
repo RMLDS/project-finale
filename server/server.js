@@ -11,6 +11,7 @@ const app = express();
 const PORT = process.env.SERVERPORT || 5050;
 
 app.use(cors());
+app.use(express.json());
 app.use(expressCspHeader({
   directives: {
       'img-src': ['data:', 'images.com']

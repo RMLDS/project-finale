@@ -1,35 +1,37 @@
 {
-    "questions": [
-      {
-        "id": 1,
-        "title": "Question - 1",
-        "description": "Some description",
-        "authorID": 1,
-        "solved": false,
-        "edited": false,
-        "deleted": false,
-        "answers": [{
-            "id": 1,
-            "authorID": 1,
-            "text": "Some comment here.",
-            "answer_edited": false,
-            "likes": 0,
-            "removed": false
-        }]
-      }
-    ],
-    "users": [
-      {
-        "id": 1,
-        "email": "xxx@xxx.com",
-        "username": "xxx",
-        "password": "xxxxx"
-      },
-      {
-        "id": 2,
-        "email": "xoxoxo@xxx.com",
-        "username": "xoxoxo",
-        "password": "xoxoxo"
-      }
-    ]
-  }
+  "questions": [
+    {
+      "id": 1,
+      "title": "Question - 1",
+      "description": "Some description",
+      "authorID": 1,
+      "solved": false,
+      "edited": false,
+      "deleted": false,
+      "answers": [
+        {
+          "id": 1,
+          "authorID": 1,
+          "text": "Some comment here.",
+          "answer_edited": false,
+          "likes": 0,
+          "removed": false
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "xxx@xxx.com",
+      "username": "xxx",
+      "password": "xxxxx"
+    },
+    {
+      "id": 2,
+      "email": "xoxoxo@xxx.com",
+      "username": "xoxoxo",
+      "password": "xoxoxo"
+    }
+  ]
+}
