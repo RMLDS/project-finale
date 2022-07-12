@@ -1,7 +1,10 @@
 import 'dotenv/config';
 import cors from 'cors';
 import express from 'express';
-import qRouter from './routes/questions.js';
+import loginRouter from './routes/login.js';
+import registerRouter from './routes/register.js';
+import questionsRouter from './routes/questions.js';
+import answersRouter from './routes/answers.js';
 import { expressCspHeader } from 'express-csp-header';
 
 const app = express();
@@ -14,6 +17,9 @@ app.use(expressCspHeader({
   },
 }));
 
-app.use('/questions', qRouter);
+app.use('/api/login', loginRouter);
+app.use('/api/register', registerRouter);
+app.use('/api/questions', questionsRouter);
+app.use('/api/answers', answersRouter);
 
 app.listen(PORT, console.log(`Server is running on: http://localhost:${PORT}\n`));
