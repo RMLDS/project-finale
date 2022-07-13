@@ -55,3 +55,90 @@
   .user {
     color: wheat;
   }
+
+  .mainFeed {
+    position: relative;
+    top: -35px;
+    width: 40% !important;
+    margin: 0 auto !important;
+    padding: 25px;
+    border: 1px solid rgb(230, 230, 230);
+  }
+
+  h2 {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .feedHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 100px;
+  }
+
+  button {
+    border-radius: 3px;
+    border: none;
+    background-color: #0a95ff;
+    padding: 10px 15px;
+    color: white;
+    font-weight: 500;
+    font-size: 0.8rem;
+  }
+
+  button:hover {
+    background-color: #077cd6;
+    cursor: pointer;
+  }
+
+  .flex {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .questionDiv {
+    display: flex;
+    padding: 35px 0;
+    border-top: 1px solid rgb(230, 230, 230);;
+  }
+
+  .questionDiv p {
+    margin: 0;
+  }
+
+  .questionDiv a {
+    color: #0074cc;
+    font-size: 1.1rem;
+    text-decoration: none;
+  }
+
+  .questionDiv a:hover {
+    color: #0a95ff;
+  }
+
+  .ratings {
+    width: 20%;
+    padding-right: 25px;
+    margin-top: 2px;
+  }
+
+  .questions {
+    width: 80%;
+  }
+
+  .desc, .ratings {
+    font-size: 0.8rem;
+  }
+
+  hr {
+    border: none;
+    border-bottom: 1px solid rgb(230, 230, 230);
+  }

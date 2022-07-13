@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
                 id : user.id,
                 username : user.username,
                 email : user.email
-            }, process.env.SECRET_TOKEN, {expiresIn : '30s'});
+            }, process.env.SECRET_TOKEN, {expiresIn : '10m'});
             // console.log(token);
             return res.cookie("access_token", token, {
                 httpOnly: true,

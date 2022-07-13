@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { Cookies } from 'react-cookie';
 
 const Menu = ({ user }) => {
     const navigate = useNavigate();
+    const cookies = new Cookies();
     const logout = (e) => {
         e.preventDefault();
-        console.log('Logged out');
-        localStorage.removeItem('token');
+        // console.log('Logged out');
+        cookies.remove('access_token', { sameSite: "lax" });
         navigate('/');
     };
 
