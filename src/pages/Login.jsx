@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom';
+import { Cookies } from 'react-cookie';
 
 const Login = () => {
     const navigate = useNavigate();
+    const cookies = new Cookies();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,9 +23,10 @@ const Login = () => {
                 if (res.error) return alert(res.error);
                 if (res.token) {
                     // console.log(res);
-                    localStorage.setItem('token', res.token);
+                    // localStorage.setItem('token', res.token);
                     // console.log('Logged in successfully');
-                    navigate('/');
+                    cookies.set('access_token', res.token, { path: '/', sameSite: "lax" });
+                    navigate('/questions');
                 };
             }
             )
@@ -31,11 +34,11 @@ const Login = () => {
 
     return (
         <div>
-            <p>Login</p>
+            <p>Prisijungti</p>
             <form onSubmit={handleSubmit}>
                 <input type="text" name='username' placeholder='username' required />
                 <input type="password" name='password' placeholder='password' required />
-                <input type="submit" value="Login" />
+                <input type="submit" value="Prisijungti" />
             </form>
         </div>
     );

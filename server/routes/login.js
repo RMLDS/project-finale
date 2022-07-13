@@ -24,8 +24,8 @@ router.post('/', async (req, res) => {
         if (match) {
             const token = jwt.sign({
                 id : user.id,
-                username : loginData.username,
-                email : loginData.email
+                username : user.username,
+                email : user.email
             }, process.env.SECRET_TOKEN, {expiresIn : '30s'});
             // console.log(token);
             return res.cookie("access_token", token, {
