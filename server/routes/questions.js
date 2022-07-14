@@ -5,10 +5,11 @@ import { verifyToken } from '../middleware/verifyToken.js';
 const router = express.Router();
 const timestamp = new Date().getTime();
 
-router.get('/', async (req, res) => {
+router.get('/:id?', async (req, res) => {
+    const id = Number(req.params.id);
     const data = await fetch('http://localhost:8080/questions')
     .then(data => data.json());
-    res.json(data);
+    id ? res.send(data.find(question => question.id === id)) : res.send(data);
 });
 
 router.post('/', verifyToken, async(req, res) => {
@@ -35,7 +36,6 @@ router.post('/', verifyToken, async(req, res) => {
             })
         });
         res.status(200).send({msg : `Klausimas sukurtas ir pridėtas į duom. bazę!`});
-
     } catch (error) {
         console.log(`Error: ${error}`);
         return res.status(400).send('Incorrect data sent.');

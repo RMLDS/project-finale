@@ -1,4 +1,5 @@
 import './App.css';
+import { Cookies } from 'react-cookie';
 import { useState, useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Menu from './components/Menu';
@@ -8,7 +9,7 @@ import NotFound from './pages/404';
 import Login from './pages/Login';
 import jwt_decode from 'jwt-decode';
 import Register from './pages/Register';
-import { Cookies } from 'react-cookie';
+import Question from './pages/Question';
 
 function App() {
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ function App() {
         <Route path="/" element={<Home user={user} />} />
         <Route path="/ask" element={<Ask user={user} />} />
         <Route path="/questions" element={<Home user={user} />} />
+        <Route path="/questions/:id" element={<Question user={user} />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

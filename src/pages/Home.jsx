@@ -15,10 +15,8 @@ const Home = ({ user }) => {
     const token = cookies.get('access_token');
 
     useEffect(() => {
-        // console.log('Useeffect Home');
-        fetch('http://localhost:5150/api/questions', {
-            // headers: { 'Authorization': `Bearer ${token}` }
-        })
+        // console.log('Useffect Home');
+        fetch('http://localhost:5150/api/questions')
             .then(res => res.json())
             .then(res => {
                 if (res.err) return navigate('/login');
@@ -37,7 +35,7 @@ const Home = ({ user }) => {
                         </div>
 
                         <div className='flex'>
-                            <p>Šiuo metu klausimų: {data.length}</p>
+                            <p>Forumo klausimų: {data.length}</p>
                             <div>
                                 <button className='whiteBtn'>Naujiausi</button>
                                 <button className='whiteBtn'>Seniausi</button>
@@ -52,10 +50,10 @@ const Home = ({ user }) => {
                             <div className='ratings'>
                                 <p>{new Date(question.date_created).toLocaleString('sv')}</p>
                                 <hr />
-                                <p>{question.answers.length} atsakymų</p>
+                                <p>Atsakymų: {question.answers.length}</p>
                             </div>
                             <div className='questions'>
-                                <Link to="/"><p>{question.title}</p></Link>
+                                <Link to={`/questions/${question.id}`}><p>{question.title}</p></Link>
                                 <p className='desc'>{question.description}</p>
                             </div>
                         </div>

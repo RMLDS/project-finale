@@ -18,6 +18,16 @@
           "author": "xxx",
           "text": "Tegu ima greitąjį kreditą kol kas.",
           "answer_edited": false,
+          "answer_created": 1657778260500,
+          "likes": 0,
+          "removed": false
+        }, {
+          "id": 1,
+          "authorID": 3,
+          "author": "xxx",
+          "text": "O šiaip aš be žodžių. Galvojau jau viską mačiau šitoj įstaigoj.",
+          "answer_edited": false,
+          "answer_created": 1657778260500,
           "likes": 0,
           "removed": false
         }
@@ -27,8 +37,8 @@
       "id": 2,
       "title": "Muša šeimą grįžęs.",
       "description": "Grįžęs po darbo pastoviai sumuša šeimą. Kokios opcijos?",
-      "authorID": 1,
-      "author": "xxx",
+      "authorID": 2,
+      "author": "xoxoxo",
       "solved": false,
       "date_created": 1657778348660,
       "edited": false,
@@ -39,15 +49,41 @@
     {
       "authorID": 3,
       "author": "xxx",
-      "title": "Bandymas pridėti klausimą",
-      "description": "Bandome pridėti klausimą ir žiūrime kaip sekasi.",
-      "date_created": 1657792293269,
+      "title": "Iškeitė namą į butelį. Nebeturi kur grįžti.",
+      "description": "Gal turit kas teisininko kontaktą? Reikia kažkaip bandyt sugrąžint jam namą.",
+      "date_created": 1657800404552,
       "edited": false,
       "solved": false,
       "deleted": false,
       "votes": 0,
       "answers": [],
-      "id": 4
+      "id": 5
+    },
+    {
+      "authorID": 3,
+      "author": "xxx",
+      "title": "Sudalyvavau kliento daugiadienėse. Kokios gręsia nuobaudos?",
+      "description": "Nuėjau pas klientą, tas žinoma pylę ir įkalbėjo mane dalyvaut kartu. Tai pats prisidėjau ir 4 dienas nebuvau darbe. Kokios gręsia nuobdaudos darbo? Gali anuliuoti mano asocijacijos kontrolieriaus licenciją? Ačiū.",
+      "date_created": 1657801636755,
+      "edited": false,
+      "solved": false,
+      "deleted": false,
+      "votes": 0,
+      "answers": [],
+      "id": 6
+    },
+    {
+      "authorID": 3,
+      "author": "xxx",
+      "title": "Neįsileidžia į namus. Ar kviesti policiją?",
+      "description": "Aną kartą irgi tas pats buvo, bet iškvietus policiją dar ir sumušė pareigūnus.",
+      "date_created": 1657801765785,
+      "edited": false,
+      "solved": false,
+      "deleted": false,
+      "votes": 0,
+      "answers": [],
+      "id": 7
     }
   ],
   "users": [

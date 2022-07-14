@@ -111,7 +111,7 @@
     border-top: 1px solid rgb(230, 230, 230);;
   }
 
-  .questionDiv p {
+  .questionDiv p, .answers p {
     margin: 0;
   }
 
@@ -128,14 +128,14 @@
   .ratings {
     width: 22.5%;
     padding-right: 25px;
-    margin-top: 2px;
+    margin-top: 3px;
   }
 
   .questions {
     width: 77.5%;
   }
 
-  .desc, .ratings {
+  .desc, .ratings, .answers {
     font-size: 0.8rem;
   }
 
@@ -149,7 +149,8 @@
     font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    width: 90%;
+    width: 97.5%;
+    resize: vertical;
     padding: 5px;
 }
 
@@ -163,4 +164,20 @@
 
 .whiteBtn:hover {
   background-color: #e3e6e8;
+}
+
+.answers {
+  padding: 25px 0;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgb(230, 230, 230);
+}
+
+.author {
+  font-size: 0.6rem;
+  padding-bottom: 5px;
+}
+
+.question {
+  color: #333333;
 }

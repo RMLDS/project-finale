@@ -31,7 +31,7 @@ const Ask = ({ user }) => {
             .then(res => {
                 console.log(res);
                 if (res.error) return alert(res.error);
-                if (res.token) {
+                if (res.status === 200) {
                     navigate('/questions');
                 };
             }
@@ -43,7 +43,7 @@ const Ask = ({ user }) => {
             <p>Užduokite naują kausimą forume</p>
             <form method="POST" onSubmit={handleSubmit}>
                 <input type="text" name="title" placeholder="Klausimas"  required/> <br /> <br />
-                <textarea name="description" rows="4" cols="50" placeholder='Aprašas' required></textarea>
+                <textarea name="description" rows="15" cols="50" placeholder='Aprašas' required></textarea>
                 <br /> <br />
                 {/* <input type="submit" value="Skelbti klausimą" /> */}
                 <button type='submit'>Skelbti klausimą</button>
