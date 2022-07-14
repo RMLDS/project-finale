@@ -3,10 +3,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Cookies } from 'react-cookie';
 
-/* const timestamp = new Date().getTime();
-const date = new Date(timestamp).toLocaleString('sv');
-console.log(date); */
-
 const Home = ({ user }) => {
     //tris kartus loadin'a?
     const navigate = useNavigate();
@@ -48,7 +44,7 @@ const Home = ({ user }) => {
                     {data.map((question, i) => {
                         return <div key={i} className='questionDiv'>
                             <div className='ratings'>
-                                <p>{new Date(question.date_created).toLocaleString('sv')}</p>
+                                <p className='author'>{new Date(question.date_created).toLocaleString('sv')}</p>
                                 <hr />
                                 <p>Atsakymų: {question.answers.length}</p>
                             </div>

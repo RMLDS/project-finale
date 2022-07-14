@@ -21,7 +21,8 @@
           "answer_created": 1657778260500,
           "likes": 0,
           "removed": false
-        }, {
+        },
+        {
           "id": 1,
           "authorID": 3,
           "author": "xxx",
@@ -71,19 +72,6 @@
       "votes": 0,
       "answers": [],
       "id": 6
-    },
-    {
-      "authorID": 3,
-      "author": "xxx",
-      "title": "Neįsileidžia į namus. Ar kviesti policiją?",
-      "description": "Aną kartą irgi tas pats buvo, bet iškvietus policiją dar ir sumušė pareigūnus.",
-      "date_created": 1657801765785,
-      "edited": false,
-      "solved": false,
-      "deleted": false,
-      "votes": 0,
-      "answers": [],
-      "id": 7
     }
   ],
   "users": [
