@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Menu from './components/Menu';
+import Ask from './pages/Ask';
 import Home from './pages/Home';
 import NotFound from './pages/404';
 import Login from './pages/Login';
@@ -14,7 +15,6 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // const token = localStorage.getItem('token');
     const cookies = new Cookies();
     const token = cookies.get('access_token');
     if (token) {
@@ -39,6 +39,7 @@ function App() {
       <Menu user={user} />
       <Routes>
         <Route path="/" element={<Home user={user} />} />
+        <Route path="/ask" element={<Ask user={user} />} />
         <Route path="/questions" element={<Home user={user} />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<Login />} />

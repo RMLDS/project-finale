@@ -1,10 +1,10 @@
 import express from 'express';
 import fetch from 'node-fetch';
-import { verifyToken } from '../middleware/verifyToken.js';
+// import { verifyToken } from '../middleware/verifyToken.js';
 
 const router = express.Router();
 
-router.get('/', verifyToken, async (req, res) => {
+router.get('/', async (req, res) => {
     const data = await fetch('http://localhost:8080/questions')
     .then(data => data.json());
     //more code here

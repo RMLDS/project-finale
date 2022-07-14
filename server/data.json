@@ -4,31 +4,50 @@
       "id": 1,
       "title": "Pragėrė visus pinigus. Ką daryt?",
       "description": "Sveiki, klientas savaitgalį ištaškė viską ką turėjo, pasiūlykit ką galima padaryt - kaip pagelbėt žmogui?",
-      "authorID": 1,
+      "authorID": 3,
+      "author": "xxx",
       "solved": false,
+      "date_created": 1657778260500,
       "edited": false,
       "deleted": false,
       "votes": 0,
       "answers": [
         {
           "id": 1,
-          "authorID": 1,
+          "authorID": 3,
+          "author": "xxx",
           "text": "Tegu ima greitąjį kreditą kol kas.",
           "answer_edited": false,
           "likes": 0,
           "removed": false
         }
       ]
-    }, {
+    },
+    {
       "id": 2,
       "title": "Muša šeimą grįžęs.",
       "description": "Grįžęs po darbo pastoviai sumuša šeimą. Kokios opcijos?",
       "authorID": 1,
+      "author": "xxx",
       "solved": false,
+      "date_created": 1657778348660,
       "edited": false,
       "deleted": false,
       "votes": 0,
       "answers": []
+    },
+    {
+      "authorID": 3,
+      "author": "xxx",
+      "title": "Bandymas pridėti klausimą",
+      "description": "Bandome pridėti klausimą ir žiūrime kaip sekasi.",
+      "date_created": 1657792293269,
+      "edited": false,
+      "solved": false,
+      "deleted": false,
+      "votes": 0,
+      "answers": [],
+      "id": 4
     }
   ],
   "users": [
