@@ -53,4 +53,27 @@ router.post('/:id', verifyToken, async (req, res) => {
     }
 });
 
+router.delete('/:id', verifyToken, async (req, res) => {
+    try {
+        const id = Number(req.params.id);
+        if (id) {
+            const userID =  Number(req.headers.userid);
+            const answerVerified = await fetch('http://localhost:8080/answers')
+                .then(res => res.json())
+                .then(data => {
+                    return data.find(answer => (answer.authorID === userID));
+                });
+            if (!answerVerified) return res.status(400).send({ error: `Wrong answer ID or different user!` });
+            await fetch(`http://localhost:8080/answers/${id}`, {
+                method: "DELETE"
+            });
+            res.status(200).send({ msg: `Atsakymas buvo ištrintas!` });
+        } else {
+            res.status(400).send({ error: 'No ID!' });
+        }
+    } catch (error) {
+        res.status(400).send({ error: `Something went wrong \n${error}` });
+    }
+});
+
 export default router;

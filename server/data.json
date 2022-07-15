@@ -101,17 +101,6 @@
     },
     {
       "questionID": 5,
-      "authorID": 3,
-      "author": "xxx",
-      "text": "Jei į gerą tai gal ir nieko?",
-      "answer_created": 1657885336086,
-      "answer_edited": false,
-      "likes": 0,
-      "removed": false,
-      "id": 4
-    },
-    {
-      "questionID": 5,
       "authorID": 5,
       "author": "PonasX",
       "text": "O ką kiti mano?",
@@ -120,6 +109,17 @@
       "likes": 0,
       "removed": false,
       "id": 16
+    },
+    {
+      "questionID": 5,
+      "authorID": 3,
+      "author": "xxx",
+      "text": "Labai nekalbūs jau šitam forume. Toks jausmas, kad aš vienas tik čia jame.",
+      "answer_created": 1657888815421,
+      "answer_edited": false,
+      "likes": 0,
+      "removed": false,
+      "id": 17
     }
   ],
   "users": [

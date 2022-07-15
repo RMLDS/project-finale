@@ -167,7 +167,7 @@
 }
 
 .answers {
-  padding: 25px 0 35px 0;
+  padding: 25px 0 25px 0;
   display: flex;
   flex-direction: column;
   justify-items: flex-start;
@@ -185,4 +185,15 @@
 
 .underQuestion {
   margin-top: -9px;
+}
+
+.deleteAnswer {
+  line-height: 1.5rem;
+  color: red;
+  display: inline;
+}
+
+.deleteAnswer:hover {
+  cursor: pointer;
+  color: black;
 }

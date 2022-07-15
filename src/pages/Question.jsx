@@ -66,10 +66,29 @@ const Question = ({ user }) => {
                 if (res.error) return alert(res.error);
                 if (res.status === 200) {
                     setMessage("");
-                    setPageActivity(pageActivity+1);
+                    setPageActivity(pageActivity + 1);
                 };
             }
             )
+    };
+
+    const deleteAnswer = (answerID) => {
+        fetch(`http://localhost:5150/api/answers/${answerID}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'UserID': user.decodedToken.id
+            }
+        })
+            .then(res => {
+                if (res.status === 200) {
+                    // padaryti confirmation'ą ar tikrai nori delete?;
+                    alert(`Atsakymas buvo ištrintas!`);
+                    setPageActivity(pageActivity + 1);
+                } else {
+                    alert('Error ' + res.error);
+                }
+            });
     };
 
     return (
@@ -103,8 +122,7 @@ const Question = ({ user }) => {
                                 </form>
                         </>) : null }
                         <br /> <br />
-                        
-                        {answers === null ? <p>Loading...</p> : (answers === false ? <p>Atsakymų nėra</p> :
+                        { answers === null ? <p>Loading...</p> : (answers === false ? <p>Atsakymų nėra</p> :
                             <>
                                 <h4>Atsakymų: {answers.length}</h4>
                                 { answers.map((answer, i) => {
@@ -112,6 +130,10 @@ const Question = ({ user }) => {
                                         <hr />
                                         <p className='author'>Autorius: <b>{answer.author}</b> / {new Date(answer.answer_created).toLocaleString('sv')}</p>
                                         <p>{answer.text}</p>
+                                        { user ? (answer.authorID === user.decodedToken.id ? (                                       <div>
+                                        <p className='deleteAnswer author' onClick={() => deleteAnswer(answer.id)}> Ištrinti</p>
+                                        </div>
+                                        ) : null) : null}
                                     </div>
                                 })}
                             </>
