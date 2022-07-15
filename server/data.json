@@ -87,6 +87,39 @@
       "likes": 0,
       "removed": false,
       "id": 2
+    },
+    {
+      "questionID": 5,
+      "authorID": 3,
+      "author": "xxx",
+      "text": "O į gerą butelį ar šiaip?",
+      "answer_created": 1657883910181,
+      "answer_edited": false,
+      "likes": 0,
+      "removed": false,
+      "id": 3
+    },
+    {
+      "questionID": 5,
+      "authorID": 3,
+      "author": "xxx",
+      "text": "Jei į gerą tai gal ir nieko?",
+      "answer_created": 1657885336086,
+      "answer_edited": false,
+      "likes": 0,
+      "removed": false,
+      "id": 4
+    },
+    {
+      "questionID": 5,
+      "authorID": 5,
+      "author": "PonasX",
+      "text": "O ką kiti mano?",
+      "answer_created": 1657887005124,
+      "answer_edited": false,
+      "likes": 0,
+      "removed": false,
+      "id": 16
     }
   ],
   "users": [

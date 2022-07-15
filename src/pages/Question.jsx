@@ -8,6 +8,8 @@ const Question = ({ user }) => {
     const [answers, setAnswers] = useState(null)
     const [author, setAuthor] = useState(null);
     const { id } = useParams();
+    const [message, setMessage] = useState("");
+    const [pageActivity, setPageActivity] = useState(0);
     let token = null;
     user ? token = user.token : token = null;
 
@@ -23,7 +25,8 @@ const Question = ({ user }) => {
             .then(data => {
                 data ? setAnswers(data) : setAnswers(false);
             });
-    }, [id]);
+        // console.log('Page activity useeffect', pageActivity);
+    }, [id, pageActivity]);
 
     const handleDelete = () => {
         fetch(`http://localhost:5150/api/questions/${id}`, {
@@ -46,10 +49,10 @@ const Question = ({ user }) => {
 
     const addAnswer = (e) => {
         e.preventDefault();
-        const questionData = {
+        const answerData = {
             author : user.decodedToken.username,
             authorID : user.decodedToken.id,
-            text : e.target.answer.value
+            text : message
         }
         fetch(`http://localhost:5150/api/answers/${id}`, {
             method: 'POST',
@@ -57,15 +60,13 @@ const Question = ({ user }) => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify(questionData)
+            body: JSON.stringify(answerData)
         })
-            // .then(res => res.json())
             .then(res => {
-                console.log(res);
                 if (res.error) return alert(res.error);
                 if (res.status === 200) {
-                    navigate('/questions');
-                    // const [comments, setComments] = useState(0) / useeffect [comments], setCommentary(+1)
+                    setMessage("");
+                    setPageActivity(pageActivity+1);
                 };
             }
             )
@@ -90,16 +91,16 @@ const Question = ({ user }) => {
                                 <br />
                                 <h4>Rašyti atsakymą:</h4>
                                 <form action="POST">
-                                    <textarea name="answer" cols="30" rows="8" placeholder='Atsakymą galite rašyti čia.'></textarea>
+                                    <textarea name="answer" cols="30" rows="8" placeholder='Atsakymą galite rašyti čia.' value={message} onChange={e => setMessage(e.target.value)}></textarea>
                                     <button onClick={addAnswer}>Pateikti atsakymą</button>
                                 </form>
                             </>
                         ) : <>
                             <h4>Rašyti atsakymą:</h4>
                             <form action="POST">
-                                <textarea name="answer" cols="30" rows="8" placeholder='Atsakymą galite rašyti čia.'></textarea>
-                                <button onClick={addAnswer}>Pateikti atsakymą</button>
-                            </form>
+                                    <textarea name="answer" cols="30" rows="8" placeholder='Atsakymą galite rašyti čia.' value={message} onChange={e => setMessage(e.target.value)}></textarea>
+                                    <button onClick={addAnswer}>Pateikti atsakymą</button>
+                                </form>
                         </>) : null }
                         <br /> <br />
                         

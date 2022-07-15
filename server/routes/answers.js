@@ -24,9 +24,10 @@ router.get('/:id?', async (req, res) => {
 router.post('/:id', verifyToken, async (req, res) => {
     try {
         const id = Number(req.params.id);
-        if (id) {
         const answerData = req.body;
-        // console.log('Answerdata:', answerData);
+
+        if (id && answerData.text !== "") {
+        // console.log('Answerdata:', typeof(answerData.text));
         await fetch(`http://localhost:8080/answers/`, {
             method: 'POST',
             headers: {
@@ -45,8 +46,7 @@ router.post('/:id', verifyToken, async (req, res) => {
             })
         });
         res.status(200).send({ msg: `Atsakymas pridėtas!` });
-        }
-
+        } else res.status(204).send({ msg: 'Išsiųstas tuščias komentaras' })
     } catch (error) {
         console.log(`Error: ${error}`);
         return res.status(400).send('Incorrect data sent.');
