@@ -8,7 +8,7 @@ const Menu = ({ user }) => {
     const logout = (e) => {
         e.preventDefault();
         // console.log('Logged out');
-        cookies.remove('access_token', { sameSite: "strict" });
+        cookies.remove('access_token', { sameSite: "lax" });
         navigate('/questions');
     };
 

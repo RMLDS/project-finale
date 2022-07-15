@@ -53,11 +53,10 @@ router.delete('/:id', verifyToken, async (req, res) => {
                     return data.find(question => (question.id === id && question.authorID === userID));
                 });
             if (!questionExists) return res.status(400).send({ error: `Wrong question ID!` });
-            // čia detaliau galima aprašyt error'us kodėl rejectint'a;
+            // čia detaliau galima būtų aprašyt error'us kodėl rejectint'a ir t.t.;
             await fetch(`http://localhost:8080/questions/${id}`, {
                 method: "DELETE"
             });
-
             res.status(200).send({ msg: `Klausimas buvo ištrintas!` });
         } else {
             res.send('No ID!');

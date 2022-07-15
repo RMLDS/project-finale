@@ -7,6 +7,7 @@ const Home = ({ user }) => {
     //tris kartus loadin'a?
     const navigate = useNavigate();
     const [data, setData] = useState(null);
+    const [answers, setAnswers] = useState(null)
     const cookies = new Cookies();
     const token = cookies.get('access_token');
 
@@ -18,7 +19,17 @@ const Home = ({ user }) => {
                 if (res.err) return navigate('/login');
                 setData(res);
             })
+        fetch(`http://localhost:5150/api/answers/`)
+            .then(res => res.json())
+            .then(data => {
+                setAnswers(data);
+            });
     }, [navigate, token]);
+
+    const answerNumber = (questionID) => {
+        const data = answers.filter(answer => answer.questionID === questionID);
+        return data.length;
+    };
 
     return (
         <div className='mainFeed'>
@@ -44,9 +55,12 @@ const Home = ({ user }) => {
                     {data.map((question, i) => {
                         return <div key={i} className='questionDiv'>
                             <div className='ratings'>
+                                <p className='author'> Autorius: {question.author}</p>
                                 <p className='author'>{new Date(question.date_created).toLocaleString('sv')}</p>
                                 <hr />
-                                <p>Atsakymų: {question.answers.length}</p>
+                                <p className='author'><b>Atsakymų: {
+                                    answers ? answerNumber(question.id) : 'error'
+                                }</b></p>
                             </div>
                             <div className='questions'>
                                 <Link to={`/questions/${question.id}`}><p>{question.title}</p></Link>

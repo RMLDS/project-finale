@@ -22,13 +22,9 @@ const Register = () => {
             body: JSON.stringify(registrationData)
         })
             .then(res => {
-                // console.log(res);
-                res.json();
-            })
-            .then(res => {
                 if (res.status === 200) {
-                    // reikia sutvarkyti šitą;
-                    alert('Registration successfull!');
+                    // reikia sutvarkyti šitą kad po to res.json() ir res.msg rodytų;
+                    alert('Registracija sėkminga!');
                     navigate('/login');
                 } else {
                     alert('Error ' + res.err);

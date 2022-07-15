@@ -10,29 +10,7 @@
       "date_created": 1657778260500,
       "edited": false,
       "deleted": false,
-      "votes": 0,
-      "answers": [
-        {
-          "id": 1,
-          "authorID": 3,
-          "author": "xxx",
-          "text": "Tegu ima greitąjį kreditą kol kas.",
-          "answer_edited": false,
-          "answer_created": 1657778260500,
-          "likes": 0,
-          "removed": false
-        },
-        {
-          "id": 1,
-          "authorID": 3,
-          "author": "xxx",
-          "text": "O šiaip aš be žodžių. Galvojau jau viską mačiau šitoj įstaigoj.",
-          "answer_edited": false,
-          "answer_created": 1657778260500,
-          "likes": 0,
-          "removed": false
-        }
-      ]
+      "votes": 0
     },
     {
       "id": 2,
@@ -74,6 +52,43 @@
       "id": 6
     }
   ],
+  "answers": [
+    {
+      "id": 1,
+      "questionID": 1,
+      "authorID": 3,
+      "author": "xxx",
+      "text": "Tegu ima greitąjį kreditą kol kas.",
+      "answer_edited": false,
+      "answer_created": 1657778260500,
+      "likes": [
+        3
+      ],
+      "removed": false
+    },
+    {
+      "id": 1,
+      "questionID": 1,
+      "authorID": 3,
+      "author": "xxx",
+      "text": "O šiaip aš be žodžių. Galvojau jau viską mačiau šitoj įstaigoj.",
+      "answer_edited": false,
+      "answer_created": 1657778260500,
+      "likes": [],
+      "removed": false
+    },
+    {
+      "questionID": 2,
+      "authorID": 5,
+      "author": "ponasx",
+      "text": "Pas mane kažkada buvo tokia situacija, pasakiau, kad saviginai ginklą žmona paimtų. Tai nuo to laiko kaip ir ramu - nieko negirdėjau iš jų daugiau. Tai gali taip pabandyt daryt.",
+      "answer_created": 1657873686564,
+      "answer_edited": false,
+      "likes": 0,
+      "removed": false,
+      "id": 2
+    }
+  ],
   "users": [
     {
       "id": 2,
@@ -86,6 +101,18 @@
       "username": "xxx",
       "password": "$2b$10$JfOlYVCjwzri4kNvAvdSau6141RR0pGTtXUnfCbd88uALCNLaQaj6",
       "id": 3
+    },
+    {
+      "email": "ponasx@xxx.com",
+      "username": "PonasX",
+      "password": "$2b$10$Zi74dfGIc9fA4FKq7Gm7uuNohupmtJxxwewLDJSVcfKPIxzILhY26",
+      "id": 5
+    },
+    {
+      "email": "angelė@xxx.com",
+      "username": "Angelė",
+      "password": "$2b$10$Ve6aL7PWFkujpRC9RiDcR.He6olSd8l8wFaH32NeHSmOhsvVMlX7C",
+      "id": 6
     }
   ]
 }
