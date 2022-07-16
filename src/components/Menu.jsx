@@ -6,9 +6,9 @@ const Menu = ({ user }) => {
     const navigate = useNavigate();
     const cookies = new Cookies();
     const logout = () => {
-        // e.preventDefault();
-        // console.log('Logged out');
+        console.log('Inside Logged out function');
         cookies.remove('access_token', { sameSite: "lax" });
+        console.log('After cookies remove');
         navigate('/questions');
     };
 

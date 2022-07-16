@@ -73,16 +73,16 @@
       "id": 8
     },
     {
-      "authorID": 3,
-      "author": "xxx",
-      "title": "Random test klausimas",
-      "description": "xxx xxxxx xxx xxx xx xxx",
-      "date_created": 1657958114949,
+      "authorID": 5,
+      "author": "PonasX",
+      "title": "xxx xxx",
+      "description": "xxxxxxxx",
+      "date_created": 1657994277145,
       "edited": true,
       "solved": false,
       "deleted": false,
       "votes": 0,
-      "id": 9
+      "id": 10
     }
   ],
   "answers": [
@@ -95,7 +95,8 @@
       "answer_edited": false,
       "answer_created": 1657778260500,
       "likes": [
-        3
+        3,
+        5
       ],
       "dislikes": [],
       "removed": false
@@ -109,7 +110,9 @@
       "answer_edited": false,
       "answer_created": 1657778260500,
       "likes": [],
-      "dislikes": [],
+      "dislikes": [
+        5
+      ],
       "removed": false
     },
     {
@@ -195,7 +198,9 @@
       "text": "Up",
       "answer_created": 1657898773925,
       "answer_edited": false,
-      "likes": [],
+      "likes": [
+        3
+      ],
       "dislikes": [],
       "removed": false,
       "id": 20
@@ -208,7 +213,9 @@
       "answer_created": 1657957367618,
       "answer_edited": false,
       "likes": [],
-      "dislikes": [],
+      "dislikes": [
+        3
+      ],
       "removed": false,
       "id": 21
     },
@@ -219,10 +226,26 @@
       "text": "xxxxxxxx",
       "answer_created": 1657985321012,
       "answer_edited": false,
-      "likes": [],
+      "likes": [
+        3
+      ],
       "dislikes": [],
       "removed": false,
       "id": 22
+    },
+    {
+      "questionID": 10,
+      "authorID": 3,
+      "author": "xxx",
+      "text": "Geras klausimas!",
+      "answer_created": 1657995462543,
+      "answer_edited": false,
+      "likes": [
+        3
+      ],
+      "dislikes": [],
+      "removed": false,
+      "id": 23
     }
   ],
   "users": [

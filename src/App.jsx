@@ -33,6 +33,7 @@ function App() {
       // console.log('No token');
       return setUser(false);
     };
+    // console.log('usfx');
   }, [navigate]);
 
   return (

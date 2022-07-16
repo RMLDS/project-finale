@@ -15,7 +15,6 @@ router.get('/:id?', async (req, res) => {
 router.post('/', verifyToken, async (req, res) => {
     try {
         const questionData = req.body;
-
         await fetch('http://localhost:8080/questions', {
             method: 'POST',
             headers: {
@@ -52,7 +51,7 @@ router.delete('/:id', verifyToken, async (req, res) => {
                     return data.find(question => (question.id === id && question.authorID === userID));
                 });
             if (!questionExists) return res.status(400).send({ error: `Wrong question ID!` });
-            // čia detaliau galima būtų aprašyt error'us kodėl rejectint'a ir t.t.;
+            // čia dar detaliau galima būtų aprašyt error'us kodėl rejectint'a ir t.t.;
             await fetch(`http://localhost:8080/questions/${id}`, {
                 method: "DELETE"
             });
@@ -61,7 +60,37 @@ router.delete('/:id', verifyToken, async (req, res) => {
             res.send('No ID!');
         }
     } catch (error) {
-        res.send({ error: `Something went wrong \n${error}` });
+        res.status(400).send({ error: `Something went wrong \n${error}` });
+    }
+});
+
+router.patch('/:id', verifyToken, async (req, res) => {
+    // console.log(req.body);
+    try {
+        const id = Number(req.params.id);
+        const userID =  Number(req.headers.userid);
+        const question = await fetch(`http://localhost:8080/questions/${id}`)
+            .then(res => res.json())
+
+        if (question.authorID !== userID) return res.status(400).send({ error: `Different user - not allowed to make changes!` });
+
+        const updatedQuestionData = {
+            title : req.body.title,
+            description : req.body.description,
+            edited : true
+        };
+
+        await fetch(`http://localhost:8080/questions/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedQuestionData)
+        });
+        res.status(200).send({ msg: `Question was edited successfully!` });
+    } catch (error) {
+        res.status(401).send({ error: `Something went wrong \n${error}` });
     }
 });
 

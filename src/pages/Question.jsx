@@ -97,7 +97,7 @@ const Question = ({ user }) => {
             likeType: likeType
         }
         fetch(`http://localhost:5150/api/likes/${answerID}`, {
-            method: 'POST',
+            method: 'PATCH',
             body: JSON.stringify(likeData),
             headers: {
                 'Content-Type': 'application/json',
@@ -111,8 +111,6 @@ const Question = ({ user }) => {
                     alert('Error ' + res.error);
                 }
             });
-        // fetchint virsuje kaip kita tada > i cons [likes, setLikes] = useState(0) > paspaudus like - useEffect vykdosi ir is naujo updatein'a;
-        // zemiau returne jei tarp like'u [] yra id tada kita sirdele
     };
 
     return (
