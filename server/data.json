@@ -94,7 +94,9 @@
       "text": "Tegu ima greitąjį kreditą kol kas.",
       "answer_edited": false,
       "answer_created": 1657778260500,
-      "likes": [],
+      "likes": [
+        3
+      ],
       "dislikes": [],
       "removed": false
     },
@@ -165,7 +167,9 @@
       "text": "Jei geras butelis tai gal ir nieko?",
       "answer_created": 1657897862775,
       "answer_edited": false,
-      "likes": [],
+      "likes": [
+        3
+      ],
       "dislikes": [],
       "removed": false,
       "id": 18
@@ -177,7 +181,9 @@
       "text": "Labai primena mano vyrą.",
       "answer_created": 1657898390872,
       "answer_edited": false,
-      "likes": [],
+      "likes": [
+        3
+      ],
       "dislikes": [],
       "removed": false,
       "id": 19
@@ -210,8 +216,8 @@
       "questionID": 9,
       "authorID": 3,
       "author": "xxx",
-      "text": "xxx",
-      "answer_created": 1657960927254,
+      "text": "xxxxxxxx",
+      "answer_created": 1657985321012,
       "answer_edited": false,
       "likes": [],
       "dislikes": [],
