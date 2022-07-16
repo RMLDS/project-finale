@@ -50,9 +50,9 @@ const Question = ({ user }) => {
     const addAnswer = (e) => {
         e.preventDefault();
         const answerData = {
-            author : user.decodedToken.username,
-            authorID : user.decodedToken.id,
-            text : message
+            author: user.decodedToken.username,
+            authorID: user.decodedToken.id,
+            text: message
         }
         fetch(`http://localhost:5150/api/answers/${id}`, {
             method: 'POST',
@@ -91,54 +91,85 @@ const Question = ({ user }) => {
             });
     };
 
+    const submitLikes = (answerID, likeType) => {
+        const likeData = {
+            userID: user.decodedToken.id,
+            likeType: likeType
+        }
+        fetch(`http://localhost:5150/api/likes/${answerID}`, {
+            method: 'POST',
+            body: JSON.stringify(likeData),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            }
+        })
+            .then(res => {
+                if (res.status === 200) {
+                    setPageActivity(pageActivity + 1);
+                } else {
+                    alert('Error ' + res.error);
+                }
+            });
+        // fetchint virsuje kaip kita tada > i cons [likes, setLikes] = useState(0) > paspaudus like - useEffect vykdosi ir is naujo updatein'a;
+        // zemiau returne jei tarp like'u [] yra id tada kita sirdele
+    };
+
     return (
         <div className='mainFeed'>
-            {
-                data === null ? <p>Loading...</p> :
-                    <>
-                        < p className='author'><b>Autorius: {data.author}</b></p>
-                        <h2 className='question'>{data.title}</h2>
-                        <p className='desc'>{data.description}</p>
-                        <br />
-                        <hr />
-                        { user ? (author === user.decodedToken.id ? (
-                            <>
-                                <div className='underQuestion'>
-                                    <button className='whiteBtn'>Redaguoti</button>
-                                    <button className='whiteBtn' onClick={handleDelete}>Ištrinti</button>
-                                </div>
-                                <br />
-                                <h4>Rašyti atsakymą:</h4>
-                                <form action="POST">
-                                    <textarea name="answer" cols="30" rows="8" placeholder='Atsakymą galite rašyti čia.' value={message} onChange={e => setMessage(e.target.value)}></textarea>
-                                    <button onClick={addAnswer}>Pateikti atsakymą</button>
-                                </form>
-                            </>
-                        ) : <>
+            { data === null ? <p>Loading...</p> :
+                <>
+                    < p className='author'><b>Autorius: {data.author}</b> {data.edited === true ? <span className='halfOp edited'><i className="bi bi-pencil"></i> Klausimas buvo redaguotas</span> : null }</p>
+                    <h2 className='question'>{data.title}</h2>
+                    <p className='desc'>{data.description}</p>
+                    <br />
+                    <hr />
+                    {user ? (author === user.decodedToken.id ? (
+                        <>
+                            <div className='underQuestion'>
+                                <button className='whiteBtn'>Redaguoti</button>
+                                <button className='whiteBtn' onClick={handleDelete}>Ištrinti</button>
+                            </div>
+                            <br />
                             <h4>Rašyti atsakymą:</h4>
                             <form action="POST">
-                                    <textarea name="answer" cols="30" rows="8" placeholder='Atsakymą galite rašyti čia.' value={message} onChange={e => setMessage(e.target.value)}></textarea>
-                                    <button onClick={addAnswer}>Pateikti atsakymą</button>
-                                </form>
-                        </>) : null }
-                        <br /> <br />
-                        { answers === null ? <p>Loading...</p> : (answers === false ? <p>Atsakymų nėra</p> :
-                            <>
-                                <h4>Atsakymų: {answers.length}</h4>
-                                { answers.map((answer, i) => {
-                                    return <div key={i} className='answers'>
-                                        <hr />
-                                        <p className='author'>Autorius: <b>{answer.author}</b> / {new Date(answer.answer_created).toLocaleString('sv')}</p>
-                                        <p>{answer.text}</p>
-                                        { user ? (answer.authorID === user.decodedToken.id ? (                                       <div>
-                                        <p className='deleteAnswer author' onClick={() => deleteAnswer(answer.id)}> Ištrinti</p>
-                                        </div>
-                                        ) : null) : null}
-                                    </div>
-                                })}
-                            </>
-                        )}
-                    </>
+                                <textarea name="answer" cols="30" rows="8" placeholder='Atsakymą galite rašyti čia.' value={message} onChange={e => setMessage(e.target.value)}></textarea>
+                                <button onClick={addAnswer}>Pateikti atsakymą</button>
+                            </form>
+                        </>
+                    ) : <>
+                        <h4>Rašyti atsakymą:</h4>
+                        <form action="POST">
+                            <textarea name="answer" cols="30" rows="8" placeholder='Atsakymą galite rašyti čia.' value={message} onChange={e => setMessage(e.target.value)}></textarea>
+                            <button onClick={addAnswer}>Pateikti atsakymą</button>
+                        </form>
+                    </>) : null}
+                    <br /> <br />
+                    {answers === null ? <p>Loading...</p> : (answers === false ? <p>Atsakymų nėra</p> :
+                        <>
+                            <h4>Atsakymų: {answers.length}</h4>
+                            {answers.map((answer, i) => {
+                                return <div key={i} className='answers'>
+                                    <hr />
+                                    <p className='author'>Autorius: <b>{answer.author}</b> / {new Date(answer.answer_created).toLocaleString('sv')} / {answer.likes.length} <i className="bi bi-heart"></i> ' <i className="bi bi-heartbreak"></i> {answer.dislikes.length}</p>
+                                    <p>{answer.text}</p>
+                                    {user ? (
+                                        <>
+                                            <div className='likeDislike'>
+                                                <p className='answerLinks likeAnswer author' onClick={() => submitLikes(answer.id, 'like')}><i className="bi bi-heart"></i> Patinka</p> <p className='answerLinks disLikeAnswer author' onClick={() => submitLikes(answer.id, 'dislike')}><i className="bi bi-heartbreak"></i> Nepatinka</p> {answer.authorID === user.decodedToken.id ? (
+                                                    <>
+                                                        <p className='answerLinks halfOp author'><i className="bi bi-pencil"></i> Redaguoti</p>
+                                                        <p className='answerLinks deleteAnswer author' onClick={() => deleteAnswer(answer.id)}><i className="bi bi-trash"></i> Ištrinti</p>
+                                                    </>
+                                                ) : null}
+                                            </div>
+                                        </>
+                                    ) : null}
+                                </div>
+                            })}
+                        </>
+                    )}
+                </>
             }
         </div>
     );

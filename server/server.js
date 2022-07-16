@@ -5,6 +5,7 @@ import loginRouter from './routes/login.js';
 import registerRouter from './routes/register.js';
 import questionsRouter from './routes/questions.js';
 import answersRouter from './routes/answers.js';
+import likesRouter from './routes/likes.js';
 import { expressCspHeader } from 'express-csp-header';
 import cookieParser from 'cookie-parser';
 
@@ -27,5 +28,6 @@ app.use('/api/login', loginRouter);
 app.use('/api/register', registerRouter);
 app.use('/api/questions', questionsRouter);
 app.use('/api/answers', answersRouter);
+app.use('/api/likes', likesRouter);
 
 app.listen(PORT, console.log(`Server is running on: http://localhost:${PORT}\n`));

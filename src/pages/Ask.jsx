@@ -45,7 +45,6 @@ const Ask = ({ user }) => {
                 <input type="text" name="title" placeholder="Klausimas"  required/> <br /> <br />
                 <textarea name="description" rows="15" cols="50" placeholder='Aprašas' required></textarea>
                 <br /> <br />
-                {/* <input type="submit" value="Skelbti klausimą" /> */}
                 <button type='submit'>Skelbti klausimą</button>
             </form>
         </div>

@@ -22,8 +22,7 @@
       "date_created": 1657778348660,
       "edited": false,
       "deleted": false,
-      "votes": 0,
-      "answers": []
+      "votes": 0
     },
     {
       "authorID": 3,
@@ -35,7 +34,6 @@
       "solved": false,
       "deleted": false,
       "votes": 0,
-      "answers": [],
       "id": 5
     },
     {
@@ -48,8 +46,43 @@
       "solved": false,
       "deleted": false,
       "votes": 0,
-      "answers": [],
       "id": 6
+    },
+    {
+      "authorID": 5,
+      "author": "PonasX",
+      "title": "Iškeitė žmoną už dėžę alaus",
+      "description": "Klientas iškeitė 20 metų kartu pragyvenusią žmoną už dėžę alaus. Kaip surast ją? Vyras nesako kam iškeitė.",
+      "date_created": 1657897535687,
+      "edited": false,
+      "solved": false,
+      "deleted": false,
+      "votes": 0,
+      "id": 7
+    },
+    {
+      "authorID": 6,
+      "author": "Angelė",
+      "title": "Grasina susidorojimu jeigu dar kartą ateisiu.",
+      "description": "Nežinau ką daryt.",
+      "date_created": 1657898503691,
+      "edited": false,
+      "solved": false,
+      "deleted": false,
+      "votes": 0,
+      "id": 8
+    },
+    {
+      "authorID": 3,
+      "author": "xxx",
+      "title": "Random test klausimas",
+      "description": "xxx xxxxx xxx xxx xx xxx",
+      "date_created": 1657958114949,
+      "edited": true,
+      "solved": false,
+      "deleted": false,
+      "votes": 0,
+      "id": 9
     }
   ],
   "answers": [
@@ -61,13 +94,12 @@
       "text": "Tegu ima greitąjį kreditą kol kas.",
       "answer_edited": false,
       "answer_created": 1657778260500,
-      "likes": [
-        3
-      ],
+      "likes": [],
+      "dislikes": [],
       "removed": false
     },
     {
-      "id": 1,
+      "id": 15,
       "questionID": 1,
       "authorID": 3,
       "author": "xxx",
@@ -75,16 +107,18 @@
       "answer_edited": false,
       "answer_created": 1657778260500,
       "likes": [],
+      "dislikes": [],
       "removed": false
     },
     {
       "questionID": 2,
       "authorID": 5,
-      "author": "ponasx",
+      "author": "PonasX",
       "text": "Pas mane kažkada buvo tokia situacija, pasakiau, kad saviginai ginklą žmona paimtų. Tai nuo to laiko kaip ir ramu - nieko negirdėjau iš jų daugiau. Tai gali taip pabandyt daryt.",
       "answer_created": 1657873686564,
       "answer_edited": false,
-      "likes": 0,
+      "likes": [],
+      "dislikes": [],
       "removed": false,
       "id": 2
     },
@@ -95,7 +129,8 @@
       "text": "O į gerą butelį ar šiaip?",
       "answer_created": 1657883910181,
       "answer_edited": false,
-      "likes": 0,
+      "likes": [],
+      "dislikes": [],
       "removed": false,
       "id": 3
     },
@@ -106,7 +141,8 @@
       "text": "O ką kiti mano?",
       "answer_created": 1657887005124,
       "answer_edited": false,
-      "likes": 0,
+      "likes": [],
+      "dislikes": [],
       "removed": false,
       "id": 16
     },
@@ -117,9 +153,70 @@
       "text": "Labai nekalbūs jau šitam forume. Toks jausmas, kad aš vienas tik čia jame.",
       "answer_created": 1657888815421,
       "answer_edited": false,
-      "likes": 0,
+      "likes": [],
+      "dislikes": [],
       "removed": false,
       "id": 17
+    },
+    {
+      "questionID": 5,
+      "authorID": 5,
+      "author": "PonasX",
+      "text": "Jei geras butelis tai gal ir nieko?",
+      "answer_created": 1657897862775,
+      "answer_edited": false,
+      "likes": [],
+      "dislikes": [],
+      "removed": false,
+      "id": 18
+    },
+    {
+      "questionID": 2,
+      "authorID": 6,
+      "author": "Angelė",
+      "text": "Labai primena mano vyrą.",
+      "answer_created": 1657898390872,
+      "answer_edited": false,
+      "likes": [],
+      "dislikes": [],
+      "removed": false,
+      "id": 19
+    },
+    {
+      "questionID": 8,
+      "authorID": 6,
+      "author": "Angelė",
+      "text": "Up",
+      "answer_created": 1657898773925,
+      "answer_edited": false,
+      "likes": [],
+      "dislikes": [],
+      "removed": false,
+      "id": 20
+    },
+    {
+      "questionID": 7,
+      "authorID": 5,
+      "author": "PonasX",
+      "text": "Gal ir man taip reikia?",
+      "answer_created": 1657957367618,
+      "answer_edited": false,
+      "likes": [],
+      "dislikes": [],
+      "removed": false,
+      "id": 21
+    },
+    {
+      "questionID": 9,
+      "authorID": 3,
+      "author": "xxx",
+      "text": "xxx",
+      "answer_created": 1657960927254,
+      "answer_edited": false,
+      "likes": [],
+      "dislikes": [],
+      "removed": false,
+      "id": 22
     }
   ],
   "users": [

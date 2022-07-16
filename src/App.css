@@ -179,6 +179,10 @@
   padding-bottom: 5px;
 }
 
+.halfOp {
+  opacity: 0.6;
+}
+
 .question {
   color: #333333;
 }
@@ -187,13 +191,34 @@
   margin-top: -9px;
 }
 
-.deleteAnswer {
-  line-height: 1.5rem;
-  color: red;
-  display: inline;
+.likeDislike > p {
+  margin-right: 10px;
 }
 
-.deleteAnswer:hover {
-  cursor: pointer;
-  color: black;
+.edited {
+  margin-left: 10px;
 }
+
+.answerLinks {
+  line-height: 1.5rem;
+  display: inline;
+  cursor: pointer;
+}
+
+.deleteAnswer {
+  color: red;
+}
+
+.answerLinks:hover {
+  color: black;
+  opacity: 1;
+}
+
+.likeAnswer {
+  color: #0074cc;
+}
+
+.disLikeAnswer {
+  color: rgb(155, 155, 155);
+}
+

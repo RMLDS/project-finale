@@ -31,8 +31,7 @@ router.post('/', verifyToken, async (req, res) => {
                 edited: false,
                 solved: false,
                 deleted: false,
-                votes: 0,
-                answers: []
+                votes: 0
             })
         });
         res.status(200).send({ msg: `Klausimas sukurtas ir pridėtas į duom. bazę!` });
