@@ -75,14 +75,14 @@
     {
       "authorID": 5,
       "author": "PonasX",
-      "title": "xxx xxx",
-      "description": "xxxxxxxx",
-      "date_created": 1657994277145,
-      "edited": true,
+      "title": "xxx",
+      "description": "xxx",
+      "date_created": 1657996525022,
+      "edited": false,
       "solved": false,
       "deleted": false,
       "votes": 0,
-      "id": 10
+      "id": 9
     }
   ],
   "answers": [
@@ -227,7 +227,8 @@
       "answer_created": 1657985321012,
       "answer_edited": false,
       "likes": [
-        3
+        3,
+        5
       ],
       "dislikes": [],
       "removed": false,

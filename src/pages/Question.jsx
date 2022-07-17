@@ -7,8 +7,11 @@ const Question = ({ user }) => {
     const [data, setData] = useState(null);
     const [answers, setAnswers] = useState(null)
     const [author, setAuthor] = useState(null);
+    const [editingQ, setEditingQ] = useState(false);
+    const [question, setQuestion] = useState('');
+    const [description, setDescription] = useState('');
     const { id } = useParams();
-    const [message, setMessage] = useState("");
+    const [message, setMessage] = useState('');
     const [pageActivity, setPageActivity] = useState(0);
     let token = null;
     user ? token = user.token : token = null;
@@ -19,6 +22,8 @@ const Question = ({ user }) => {
             .then(data => {
                 setData(data);
                 setAuthor(data.authorID);
+                setQuestion(data.title);
+                setDescription(data.description);
             });
         fetch(`http://localhost:5150/api/answers/${id}`)
             .then(res => res.json())
@@ -113,20 +118,60 @@ const Question = ({ user }) => {
             });
     };
 
+    const submitQEdit = () => {
+        const questionData = {
+            title: question,
+            description: description
+        }
+        fetch(`http://localhost:5150/api/questions/${id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(questionData),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+                'UserID': user.decodedToken.id
+            }
+        })
+            .then(res => {
+                if (res.status === 200) {
+                    setPageActivity(pageActivity + 1);
+                } else {
+                    console.log(res);
+                    alert('Error ' + res.statusText);
+                }
+        });
+        // console.log('Edited question');
+        setEditingQ(false);
+    };
+
     return (
         <div className='mainFeed'>
             { data === null ? <p>Loading...</p> :
                 <>
                     < p className='author'><b>Autorius: {data.author}</b> {data.edited === true ? <span className='halfOp edited'><i className="bi bi-pencil"></i> Klausimas buvo redaguotas</span> : null }</p>
+                    {editingQ ?
+                    <>
+                        <form method="POST" onSubmit={submitQEdit}>
+                        <input type="text" name="title" placeholder="Klausimas" value={question} onChange={e => setQuestion(e.target.value)} required/> <br /> <br />
+                        <textarea name="description" rows="5" cols="50" placeholder='Aprašas' value={description} onChange={e => setDescription(e.target.value)} required></textarea>
+                        <br /> <br />
+                        <button type='submit'>Išsaugoti klausimą</button>
+                        </form>
+                    </> : <>
                     <h2 className='question'>{data.title}</h2>
                     <p className='desc'>{data.description}</p>
+                    </> }
                     <br />
                     <hr />
                     {user ? (author === user.decodedToken.id ? (
                         <>
                             <div className='underQuestion'>
-                                <button className='whiteBtn'>Redaguoti</button>
-                                <button className='whiteBtn' onClick={handleDelete}>Ištrinti</button>
+                            { editingQ ? null :
+                                <>
+                                    <button className='whiteBtn' onClick={() => setEditingQ(true)}>Redaguoti</button>
+                                    <button className='whiteBtn' onClick={handleDelete}>Ištrinti</button>
+                                </>
+                            }
                             </div>
                             <br />
                             <h4>Rašyti atsakymą:</h4>

@@ -69,15 +69,18 @@ router.patch('/:id', verifyToken, async (req, res) => {
     try {
         const id = Number(req.params.id);
         const userID =  Number(req.headers.userid);
+        let editedStatus = true;
         const question = await fetch(`http://localhost:8080/questions/${id}`)
             .then(res => res.json())
 
         if (question.authorID !== userID) return res.status(400).send({ error: `Different user - not allowed to make changes!` });
 
+        question.edited === false && question.title === req.body.title && question.description === req.body.description ? editedStatus = false : editedStatus = true;
+
         const updatedQuestionData = {
             title : req.body.title,
             description : req.body.description,
-            edited : true
+            edited : editedStatus
         };
 
         await fetch(`http://localhost:8080/questions/${id}`, {
