@@ -97,4 +97,30 @@ router.patch('/:id', verifyToken, async (req, res) => {
     }
 });
 
+router.put('/:id', verifyToken, async (req, res) => {
+    try {
+        const id = Number(req.params.id);
+        const userID =  Number(req.headers.userid);
+        let solvedStatus = false;
+        const question = await fetch(`http://localhost:8080/questions/${id}`)
+            .then(res => res.json())
+
+        if (question.authorID !== userID) return res.status(400).send({ error: `Different user - not allowed to make changes!` });
+
+        question.solved === false ? solvedStatus = true : solvedStatus = false;
+
+        await fetch(`http://localhost:8080/questions/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ solved : solvedStatus })
+        });
+        res.status(200).send({ msg: `Question was edited successfully!` });
+    } catch (error) {
+        res.status(401).send({ error: `Something went wrong \n${error}` });
+    }
+});
+
 export default router;

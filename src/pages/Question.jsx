@@ -139,11 +139,26 @@ const Question = ({ user }) => {
                 if (res.status === 200) {
                     setPageActivity(pageActivity + 1);
                 } else {
-                    console.log(res);
                     alert('Error ' + res.statusText);
                 }
         });
             setEditingQ(false);
+        } else if (type === 'solved') {
+            fetch(`http://localhost:5150/api/questions/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                    'UserID': user.decodedToken.id
+                }
+            })
+                .then(res => {
+                    if (res.status === 200) {
+                        setPageActivity(pageActivity + 1);
+                    } else {
+                        alert('Error ' + res.statusText);
+                    }
+            });
         } else {
             fetch(`http://localhost:5150/api/answers/${type}`, {
                 method: 'PATCH',
@@ -159,7 +174,6 @@ const Question = ({ user }) => {
                         setPageActivity(pageActivity + 1);
                         console.log('SubmitEdit else, answer:', answerEdit);
                     } else {
-                        console.log(res);
                         alert('Error ' + res.statusText);
                     }
             });
@@ -191,7 +205,7 @@ const Question = ({ user }) => {
                             <div className='underQuestion'>
                             { editingQ ? null :
                                 <>
-                                    <button className='whiteBtn greenBtn' /* onClick={() => setEditingQ(true)} */>Žymėti atsakytu <i className="bi bi-check-lg"></i></button>
+                                    { data.solved === true ? <button className='whiteBtn greenBtn' onClick={() => submitEdit('solved')}>Klausimas atsakytas! <i className="bi bi-check-lg"></i></button> : <button className='whiteBtn' onClick={() => submitEdit('solved')}>Žymėti atsakytu <i className="bi bi-check-lg"></i></button> }
                                     <button className='whiteBtn' onClick={() => setEditingQ(true)}>Redaguoti</button>
                                     <button className='whiteBtn' onClick={handleDelete}>Ištrinti</button>
                                 </>

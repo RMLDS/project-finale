@@ -6,7 +6,7 @@
       "description": "Sveiki, klientas savaitgalį ištaškė viską ką turėjo, pasiūlykit ką galima padaryt - kaip pagelbėt žmogui?",
       "authorID": 3,
       "author": "xxx",
-      "solved": false,
+      "solved": true,
       "date_created": 1657778260500,
       "edited": false,
       "deleted": false,
@@ -18,7 +18,7 @@
       "description": "Grįžęs po darbo pastoviai sumuša šeimą. Kokios opcijos?",
       "authorID": 2,
       "author": "xoxoxo",
-      "solved": false,
+      "solved": true,
       "date_created": 1657778348660,
       "edited": false,
       "deleted": false,
@@ -67,22 +67,10 @@
       "description": "Nežinau ką daryt.",
       "date_created": 1657898503691,
       "edited": false,
-      "solved": false,
+      "solved": true,
       "deleted": false,
       "votes": 0,
       "id": 8
-    },
-    {
-      "authorID": 3,
-      "author": "xxx",
-      "title": "xxxxxx",
-      "description": "xxx xx xxxxx xxx",
-      "date_created": 1658059469866,
-      "edited": true,
-      "solved": false,
-      "deleted": false,
-      "votes": 0,
-      "id": 9
     }
   ],
   "answers": [
@@ -123,7 +111,9 @@
       "text": "Pas mane kažkada buvo tokia situacija, pasakiau, kad saviginai ginklą žmona paimtų. Tai nuo to laiko kaip ir ramu - nieko negirdėjau iš jų daugiau. Tai gali taip pabandyt daryt.",
       "answer_created": 1657873686564,
       "answer_edited": false,
-      "likes": [],
+      "likes": [
+        2
+      ],
       "dislikes": [],
       "removed": false,
       "id": 2
@@ -135,7 +125,9 @@
       "text": "O į gerą butelį ar šiaip?",
       "answer_created": 1657883910181,
       "answer_edited": false,
-      "likes": [],
+      "likes": [
+        6
+      ],
       "dislikes": [],
       "removed": false,
       "id": 3
@@ -174,7 +166,8 @@
       "answer_created": 1657897862775,
       "answer_edited": false,
       "likes": [
-        3
+        3,
+        6
       ],
       "dislikes": [],
       "removed": false,
@@ -190,7 +183,9 @@
       "likes": [
         3
       ],
-      "dislikes": [],
+      "dislikes": [
+        6
+      ],
       "removed": false,
       "id": 19
     },
@@ -245,36 +240,52 @@
       "answer_edited": false,
       "likes": [],
       "dislikes": [
-        3
+        3,
+        6
       ],
       "removed": false,
       "id": 26
     },
     {
-      "questionID": 6,
+      "questionID": 8,
       "authorID": 3,
       "author": "xxx",
-      "text": "xxx",
-      "answer_created": 1658058565158,
+      "text": "Sakyk, kad duosi išgert jeigu įleis.",
+      "answer_created": 1658063185958,
       "answer_edited": false,
       "likes": [
+        6,
         3
       ],
       "dislikes": [],
       "removed": false,
-      "id": 28
+      "id": 30
+    },
+    {
+      "questionID": 6,
+      "authorID": 3,
+      "author": "xxx",
+      "text": "Up. Padėkit.",
+      "answer_created": 1658065422770,
+      "answer_edited": true,
+      "likes": [],
+      "dislikes": [
+        3
+      ],
+      "removed": false,
+      "id": 31
     },
     {
       "questionID": 9,
       "authorID": 3,
       "author": "xxx",
-      "text": "xxxx",
-      "answer_created": 1658062118048,
+      "text": "xxxxx",
+      "answer_created": 1658065478509,
       "answer_edited": true,
       "likes": [],
       "dislikes": [],
       "removed": false,
-      "id": 29
+      "id": 32
     }
   ],
   "users": [
@@ -282,7 +293,7 @@
       "id": 2,
       "email": "xoxoxo@xxx.com",
       "username": "xoxoxo",
-      "password": "xoxoxo"
+      "password": "$2b$10$JfOlYVCjwzri4kNvAvdSau6141RR0pGTtXUnfCbd88uALCNLaQaj6"
     },
     {
       "email": "xxx@xxx.com",
