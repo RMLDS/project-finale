@@ -8,7 +8,9 @@ const Question = ({ user }) => {
     const [answers, setAnswers] = useState(null)
     const [author, setAuthor] = useState(null);
     const [editingQ, setEditingQ] = useState(false);
+    const [editingA, setEditingA] = useState();
     const [question, setQuestion] = useState('');
+    const [answerEdit, setAnswer] = useState('');
     const [description, setDescription] = useState('');
     const { id } = useParams();
     const [message, setMessage] = useState('');
@@ -118,7 +120,8 @@ const Question = ({ user }) => {
             });
     };
 
-    const submitQEdit = () => {
+    const submitEdit = (type) => {
+        if (type === 'Q') {
         const questionData = {
             title: question,
             description: description
@@ -140,8 +143,28 @@ const Question = ({ user }) => {
                     alert('Error ' + res.statusText);
                 }
         });
-        // console.log('Edited question');
-        setEditingQ(false);
+            setEditingQ(false);
+        } else {
+            fetch(`http://localhost:5150/api/answers/${type}`, {
+                method: 'PATCH',
+                body: JSON.stringify({text : answerEdit}),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                    'UserID': user.decodedToken.id
+                }
+            })
+                .then(res => {
+                    if (res.status === 200) {
+                        setPageActivity(pageActivity + 1);
+                        console.log('SubmitEdit else, answer:', answerEdit);
+                    } else {
+                        console.log(res);
+                        alert('Error ' + res.statusText);
+                    }
+            });
+            setEditingA();
+        }
     };
 
     return (
@@ -151,7 +174,7 @@ const Question = ({ user }) => {
                     < p className='author'><b>Autorius: {data.author}</b> {data.edited === true ? <span className='halfOp edited'><i className="bi bi-pencil"></i> Klausimas buvo redaguotas</span> : null }</p>
                     {editingQ ?
                     <>
-                        <form method="POST" onSubmit={submitQEdit}>
+                        <form method="POST" onSubmit={() => submitEdit('Q')}>
                         <input type="text" name="title" placeholder="Klausimas" value={question} onChange={e => setQuestion(e.target.value)} required/> <br /> <br />
                         <textarea name="description" rows="5" cols="50" placeholder='Aprašas' value={description} onChange={e => setDescription(e.target.value)} required></textarea>
                         <br /> <br />
@@ -168,6 +191,7 @@ const Question = ({ user }) => {
                             <div className='underQuestion'>
                             { editingQ ? null :
                                 <>
+                                    <button className='whiteBtn greenBtn' /* onClick={() => setEditingQ(true)} */>Žymėti atsakytu <i className="bi bi-check-lg"></i></button>
                                     <button className='whiteBtn' onClick={() => setEditingQ(true)}>Redaguoti</button>
                                     <button className='whiteBtn' onClick={handleDelete}>Ištrinti</button>
                                 </>
@@ -194,14 +218,19 @@ const Question = ({ user }) => {
                             {answers.map((answer, i) => {
                                 return <div key={i} className='answers'>
                                     <hr />
-                                    <p className='author'>Autorius: <b>{answer.author}</b> / {new Date(answer.answer_created).toLocaleString('sv')} / {answer.likes.length} <i className="bi bi-heart"></i> ' <i className="bi bi-heartbreak"></i> {answer.dislikes.length}</p>
-                                    <p>{answer.text}</p>
-                                    {user ? (
+                                    <p className='author'>Autorius: <b>{answer.author}</b> / {new Date(answer.answer_created).toLocaleString('sv')} / {answer.likes.length} <i className="bi bi-heart"></i> ' <i className="bi bi-heartbreak"></i> {answer.dislikes.length} { answer.answer_edited ? <span className='halfOp edited'><i className="bi bi-pencil"></i> Atsakymas buvo redaguotas</span> : null }</p>
+                                        { editingA === answer.id ?
+                                        <div>
+                                            <input type="text" value={answerEdit} onChange={e => setAnswer(e.target.value)} required/>
+                                            <button onClick={() => submitEdit(answer.id)}>Išsaugoti</button>
+                                        </div> :
+                                    <p>{answer.text}</p>}
+                                    { user ? (
                                         <>
                                             <div className='likeDislike'>
-                                                <p className='answerLinks likeAnswer author' onClick={() => submitLikes(answer.id, 'like')}><i className="bi bi-heart"></i> Patinka</p> <p className='answerLinks disLikeAnswer author' onClick={() => submitLikes(answer.id, 'dislike')}><i className="bi bi-heartbreak"></i> Nepatinka</p> {answer.authorID === user.decodedToken.id ? (
+                                                <p className='answerLinks likeAnswer author' onClick={() => submitLikes(answer.id, 'like')}><i className="bi bi-heart"></i> Patinka</p> <p className='answerLinks disLikeAnswer author' onClick={() => submitLikes(answer.id, 'dislike')}><i className="bi bi-heartbreak"></i> Nepatinka</p> {answer.authorID === user.decodedToken.id ? ( 
                                                     <>
-                                                        <p className='answerLinks halfOp author'><i className="bi bi-pencil"></i> Redaguoti</p>
+                                                        <p className='answerLinks halfOp author' onClick={() => {setEditingA(answer.id); setAnswer(answer.text)}}><i className="bi bi-pencil"></i> Redaguoti</p>
                                                         <p className='answerLinks deleteAnswer author' onClick={() => deleteAnswer(answer.id)}><i className="bi bi-trash"></i> Ištrinti</p>
                                                     </>
                                                 ) : null}

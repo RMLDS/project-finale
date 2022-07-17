@@ -73,12 +73,12 @@
       "id": 8
     },
     {
-      "authorID": 5,
-      "author": "PonasX",
-      "title": "xxx",
-      "description": "xxx",
-      "date_created": 1657996525022,
-      "edited": false,
+      "authorID": 3,
+      "author": "xxx",
+      "title": "xxxxxx",
+      "description": "xxx xx xxxxx xxx",
+      "date_created": 1658059469866,
+      "edited": true,
       "solved": false,
       "deleted": false,
       "votes": 0,
@@ -95,8 +95,8 @@
       "answer_edited": false,
       "answer_created": 1657778260500,
       "likes": [
-        3,
-        5
+        5,
+        3
       ],
       "dislikes": [],
       "removed": false
@@ -111,7 +111,8 @@
       "answer_created": 1657778260500,
       "likes": [],
       "dislikes": [
-        5
+        5,
+        3
       ],
       "removed": false
     },
@@ -159,7 +160,9 @@
       "answer_created": 1657888815421,
       "answer_edited": false,
       "likes": [],
-      "dislikes": [],
+      "dislikes": [
+        3
+      ],
       "removed": false,
       "id": 17
     },
@@ -220,21 +223,6 @@
       "id": 21
     },
     {
-      "questionID": 9,
-      "authorID": 3,
-      "author": "xxx",
-      "text": "xxxxxxxx",
-      "answer_created": 1657985321012,
-      "answer_edited": false,
-      "likes": [
-        3,
-        5
-      ],
-      "dislikes": [],
-      "removed": false,
-      "id": 22
-    },
-    {
       "questionID": 10,
       "authorID": 3,
       "author": "xxx",
@@ -247,6 +235,46 @@
       "dislikes": [],
       "removed": false,
       "id": 23
+    },
+    {
+      "questionID": 5,
+      "authorID": 3,
+      "author": "xxx",
+      "text": "xoxoxo",
+      "answer_created": 1658056931604,
+      "answer_edited": false,
+      "likes": [],
+      "dislikes": [
+        3
+      ],
+      "removed": false,
+      "id": 26
+    },
+    {
+      "questionID": 6,
+      "authorID": 3,
+      "author": "xxx",
+      "text": "xxx",
+      "answer_created": 1658058565158,
+      "answer_edited": false,
+      "likes": [
+        3
+      ],
+      "dislikes": [],
+      "removed": false,
+      "id": 28
+    },
+    {
+      "questionID": 9,
+      "authorID": 3,
+      "author": "xxx",
+      "text": "xxxx",
+      "answer_created": 1658062118048,
+      "answer_edited": true,
+      "likes": [],
+      "dislikes": [],
+      "removed": false,
+      "id": 29
     }
   ],
   "users": [

@@ -29,7 +29,7 @@ const Ask = ({ user }) => {
         })
             // .then(res => res.json())
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 if (res.error) return alert(res.error);
                 if (res.status === 200) {
                     navigate('/questions');
@@ -41,7 +41,7 @@ const Ask = ({ user }) => {
     return (
         <div className='mainFeed'>
             <p>Užduokite naują kausimą forume</p>
-            <form method="POST" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <input type="text" name="title" placeholder="Klausimas"  required/> <br /> <br />
                 <textarea name="description" rows="15" cols="50" placeholder='Aprašas' required></textarea>
                 <br /> <br />

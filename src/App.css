@@ -162,8 +162,18 @@
   border: 1px solid rgb(230, 230, 230);
 }
 
+.greenBtn {
+  background-color: #1bd09f;
+  color: white;
+}
+
 .whiteBtn:hover {
   background-color: #e3e6e8;
+}
+
+.greenBtn:hover {
+  background-color: #17b389;
+  color: white;
 }
 
 .answers {
