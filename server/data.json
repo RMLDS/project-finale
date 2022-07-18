@@ -181,7 +181,8 @@
       "answer_created": 1657898390872,
       "answer_edited": false,
       "likes": [
-        3
+        3,
+        5
       ],
       "dislikes": [
         6
@@ -274,18 +275,6 @@
       ],
       "removed": false,
       "id": 31
-    },
-    {
-      "questionID": 9,
-      "authorID": 3,
-      "author": "xxx",
-      "text": "xxxxx",
-      "answer_created": 1658065478509,
-      "answer_edited": true,
-      "likes": [],
-      "dislikes": [],
-      "removed": false,
-      "id": 32
     }
   ],
   "users": [
@@ -312,6 +301,12 @@
       "username": "Angelė",
       "password": "$2b$10$Ve6aL7PWFkujpRC9RiDcR.He6olSd8l8wFaH32NeHSmOhsvVMlX7C",
       "id": 6
+    },
+    {
+      "email": "xxxxx@xxx.com",
+      "username": "xxxxx",
+      "password": "$2b$10$DUhSL8FZx0kupP.h61oZMuE1d7Kkealw3XnzHz354QRw7ZLEpyM.y",
+      "id": 7
     }
   ]
 }

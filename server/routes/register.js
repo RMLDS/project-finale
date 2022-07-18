@@ -19,8 +19,8 @@ router.post('/', async (req, res) => {
             return { email : existingEmail, username : existingUsername };
         });
 
-        if (existingUserData.email) return res.status(400).send({ msg : `Email already exists.`});
-        if (existingUserData.username) return res.status(400).send({ msg : `Username already taken.`});
+        if (existingUserData.email) return res.status(400).send({ err : `Email already exists.`});
+        if (existingUserData.username) return res.status(400).send({ err : `Username already taken.`});
 
         const hashedPassword = bcrypt.hashSync(newUserData.password, parseInt(process.env.SALT));
 

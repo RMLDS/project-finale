@@ -55,6 +55,16 @@ router.delete('/:id', verifyToken, async (req, res) => {
             await fetch(`http://localhost:8080/questions/${id}`, {
                 method: "DELETE"
             });
+
+            const affectedAnswers = await fetch (`http://localhost:8080/answers?questionID=${id}`)
+                .then(res => res.json());
+                
+            affectedAnswers.forEach(answer => {
+                fetch(`http://localhost:8080/answers/${answer.id}`, {
+                method: "DELETE"
+                });
+            });
+
             res.status(200).send({ msg: `Klausimas buvo ištrintas!` });
         } else {
             res.send('No ID!');

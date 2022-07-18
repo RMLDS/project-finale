@@ -21,13 +21,14 @@ const Register = () => {
             },
             body: JSON.stringify(registrationData)
         })
-            .then(res => {
-                if (res.status === 200) {
-                    // reikia sutvarkyti šitą kad po to res.json() ir res.msg rodytų;
+            .then(res => res.json())
+            .then(data => {
+                if (data.msg) {
                     alert('Registracija sėkminga!');
                     navigate('/login');
-                } else {
-                    alert('Error ' + res.err);
+                } else if (data.err) {
+                    // console.log(data.err);
+                    alert('Error ' + data.err);
                 }
             }
             );
@@ -43,6 +44,12 @@ const Register = () => {
                 <input type="password" name="password_repeat" placeholder="Password repeat" required />
                 <input type="submit" value="Registruoti" />
             </form>
+            <br />
+            <p className='desc'>Registracijos info: <br /> <br />
+            • Vartotojo slapyvardis turi būti bent 3 simbolių<br />
+            • Slaptažodis turi būti bent 5 simbolių<br />
+            • Abu įvesti slaptažodžiai turi sutapti<br />
+            </p>
         </div>
     );
 }

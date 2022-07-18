@@ -1,25 +1,20 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Cookies } from 'react-cookie';
 
 const Home = ({ user }) => {
-    console.log('Home loaded'); // tris kartus loadin'a;
     const navigate = useNavigate();
     const [data, setData] = useState(null);
-    const [baseData, setbaseData] = useState(null);
+    const [primaryData, setbaseData] = useState(null);
     const [answers, setAnswers] = useState(null);
-    const [filter, setFilter] = useState();
+    const [filter, setFilter] = useState('all');
     const [sort, setSorting] = useState();
-    const cookies = new Cookies();
-    const token = cookies.get('access_token');
 
     useEffect(() => {
         console.log('Useffect Home');
         fetch('http://localhost:5150/api/questions')
             .then(res => res.json())
             .then(res => {
-                if (res.err) return navigate('/login');
                 setData(res);
                 setbaseData(res);
             })
@@ -28,32 +23,56 @@ const Home = ({ user }) => {
             .then(data => {
                 setAnswers(data);
             });
-    }, [navigate, token]);
+    }, [navigate]);
 
     const answerNumber = (questionID) => {
         const data = answers.filter(answer => answer.questionID === questionID);
         return data.length;
     };
 
-    useEffect(() => {
-        let formattedData = baseData;
-
-        if (filter === 'solved')  {
+    const filterData = (filterType) => {
+        let formattedData = data;
+        if (filterType === 'solved') {
             formattedData = formattedData.filter(question => question.solved === true);
-        } if (filter === 'unsolved') {
+            setFilter('solved');
+            setData(formattedData);
+        } if (filterType === 'unsolved') {
             formattedData = formattedData.filter(question => question.solved === false);
-        } if (sort === 'new') {
-
-        } if (sort === 'old') {
-
+            setFilter('unsolved');
+            setData(formattedData);
+        } if (filterType === 'all') {
+            setData(primaryData);
+            if (sort === 'new') {
+                setData(primaryData);
+                sortData('new');
+                // setFilter('all');
+            }  if (sort === 'old') {
+                setData(primaryData);
+                sortData('old');
+                // setFilter('all');
+            } else {
+                setData(primaryData);
+                // setFilter('all');
+            }
+            console.log('sort is:', sort);
+            setFilter('all');
         }
-        // console.log('xxx formatted data', formattedData);
-        setData(formattedData);
-    }, [baseData, filter, sort])
+        
+    };
+
+    const sortData = (sortType) => {
+        if (sortType === 'new') {
+            setData(data.sort((a,b) => b.date_created - a.date_created));
+            setSorting('new');
+        } if (sortType === 'old') {
+            setData(data.sort((a,b) => a.date_created - b.date_created));
+            setSorting('old');
+        }
+    };
 
     return (
         <div className='mainFeed'>
-            {data === null ? <p>Loading...</p> : (data.length === 0 ? <p>Nėra nei vieno klausimo!</p> :
+            { data === null ? <p>Loading...</p> : (data.length === 0 ? <p>Nėra nei vieno klausimo!</p> :
                 <>
                     <div className='feedHeader'>
                         <div className='flex' style={{ minHeight: 50 }}>
@@ -64,16 +83,15 @@ const Home = ({ user }) => {
                         <div className='flex'>
                             <p>Forumo klausimų: {data.length}</p>
                             <div>
-                                <button className='whiteBtn' onClick={() => { setSorting('new') }}>Naujiausi</button>
-                                <button className='whiteBtn' onClick={() => { setSorting('old') }}>Seniausi</button>
-                                <button className='whiteBtn'>Top</button>
-                                <button className='whiteBtn' onClick={() => { setFilter('solved') }}>Atsakyti</button>
-                                <button className='whiteBtn' onClick={() => { setFilter('unsolved') }}>Neatsakyti</button>
-                                <button className='whiteBtn' onClick={() => { setFilter('all') }}>Visi</button>
+                                <button className='whiteBtn' onClick={() => sortData('new')}>{sort === 'new' ? <span className='selected'>Naujiausi</span> : 'Naujiausi'}</button>
+                                <button className='whiteBtn' onClick={() => sortData('old')}>{sort === 'old' ? <span className='selected'>Seniausi</span> : 'Seniausi'}</button>
+                                <button className='whiteBtn' onClick={() => filterData('solved')}>{filter === 'solved' ? <span className='selected'>Atsakyti</span> : 'Atsakyti'}</button>
+                                <button className='whiteBtn' onClick={() => filterData('unsolved')}>{filter === 'unsolved' ? <span className='selected'>Neatsakyti</span> : 'Neatsakyti'}</button>
+                                <button className='whiteBtn' onClick={() => filterData('all')}>{filter === 'all' ? <span className='selected'>Visi</span> : 'Visi'}</button>
                             </div>
                         </div>
                     </div>
-                    {data.map((question, i) => {
+                    { data.map((question, i) => {
                         return <div key={i} className='questionDiv'>
                             <div className='ratings'>
                                 <p className='author'> Autorius: {question.author}</p>

@@ -6,7 +6,6 @@ const Menu = ({ user }) => {
     const navigate = useNavigate();
     const cookies = new Cookies();
     const logout = () => {
-        console.log('Inside Logged out function');
         cookies.remove('access_token', { sameSite: "lax" });
         console.log('After cookies remove');
         navigate('/questions');
@@ -21,7 +20,7 @@ const Menu = ({ user }) => {
                 {
                     user ? (<>
                         <p className='user'>Prisijungęs vartotojas: {user.decodedToken.username}</p>
-                        <Link to="/" onClick={() => logout()}>Atsijungti</Link>
+                        <Link to="/questions" onClick={() => logout()}>Atsijungti</Link>
                     </>) : (<>
                         <Link to="/register">Registruotis</Link>
                         <Link to="/login">Prisijungti</Link>

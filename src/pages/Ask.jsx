@@ -5,11 +5,6 @@ const Ask = ({ user }) => {
     const navigate = useNavigate();
     let token = null;
     user ? token = user.token : navigate('/login');
-    // if (!user) return navigate('/login');
-
-/*     useEffect(() => {
-        user ? console.log('All good') : navigate('/login');
-    }, [navigate, user]); */
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,15 +22,12 @@ const Ask = ({ user }) => {
             },
             body: JSON.stringify(questionData)
         })
-            // .then(res => res.json())
             .then(res => {
-                // console.log(res);
                 if (res.error) return alert(res.error);
                 if (res.status === 200) {
                     navigate('/questions');
                 };
-            }
-            )
+            })
     };
     
     return (
