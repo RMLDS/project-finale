@@ -81,10 +81,11 @@
       "author": "xxx",
       "text": "Tegu ima greitąjį kreditą kol kas.",
       "answer_edited": false,
+      "solving_answer": true,
       "answer_created": 1657778260500,
       "likes": [
-        5,
-        3
+        3,
+        5
       ],
       "dislikes": [],
       "removed": false
@@ -96,11 +97,12 @@
       "author": "xxx",
       "text": "O šiaip aš be žodžių. Galvojau jau viską mačiau šitoj įstaigoj.",
       "answer_edited": false,
+      "solving_answer": false,
       "answer_created": 1657778260500,
       "likes": [],
       "dislikes": [
-        5,
-        3
+        3,
+        5
       ],
       "removed": false
     },
@@ -111,6 +113,7 @@
       "text": "Pas mane kažkada buvo tokia situacija, pasakiau, kad saviginai ginklą žmona paimtų. Tai nuo to laiko kaip ir ramu - nieko negirdėjau iš jų daugiau. Tai gali taip pabandyt daryt.",
       "answer_created": 1657873686564,
       "answer_edited": false,
+      "solving_answer": true,
       "likes": [
         2
       ],
@@ -125,6 +128,7 @@
       "text": "O į gerą butelį ar šiaip?",
       "answer_created": 1657883910181,
       "answer_edited": false,
+      "solving_answer": false,
       "likes": [
         6
       ],
@@ -139,6 +143,7 @@
       "text": "O ką kiti mano?",
       "answer_created": 1657887005124,
       "answer_edited": false,
+      "solving_answer": false,
       "likes": [],
       "dislikes": [],
       "removed": false,
@@ -151,6 +156,7 @@
       "text": "Labai nekalbūs jau šitam forume. Toks jausmas, kad aš vienas tik čia jame.",
       "answer_created": 1657888815421,
       "answer_edited": false,
+      "solving_answer": false,
       "likes": [],
       "dislikes": [
         3
@@ -165,6 +171,7 @@
       "text": "Jei geras butelis tai gal ir nieko?",
       "answer_created": 1657897862775,
       "answer_edited": false,
+      "solving_answer": false,
       "likes": [
         3,
         6
@@ -180,6 +187,7 @@
       "text": "Labai primena mano vyrą.",
       "answer_created": 1657898390872,
       "answer_edited": false,
+      "solving_answer": false,
       "likes": [
         3,
         5
@@ -197,6 +205,7 @@
       "text": "Up",
       "answer_created": 1657898773925,
       "answer_edited": false,
+      "solving_answer": false,
       "likes": [
         3
       ],
@@ -211,6 +220,7 @@
       "text": "Gal ir man taip reikia?",
       "answer_created": 1657957367618,
       "answer_edited": false,
+      "solving_answer": false,
       "likes": [],
       "dislikes": [
         3
@@ -225,6 +235,7 @@
       "text": "Geras klausimas!",
       "answer_created": 1657995462543,
       "answer_edited": false,
+      "solving_answer": false,
       "likes": [
         3
       ],
@@ -239,6 +250,7 @@
       "text": "xoxoxo",
       "answer_created": 1658056931604,
       "answer_edited": false,
+      "solving_answer": false,
       "likes": [],
       "dislikes": [
         3,
@@ -254,9 +266,11 @@
       "text": "Sakyk, kad duosi išgert jeigu įleis.",
       "answer_created": 1658063185958,
       "answer_edited": false,
+      "solving_answer": true,
       "likes": [
         6,
-        3
+        3,
+        5
       ],
       "dislikes": [],
       "removed": false,
@@ -269,6 +283,7 @@
       "text": "Up. Padėkit.",
       "answer_created": 1658065422770,
       "answer_edited": true,
+      "solving_answer": false,
       "likes": [],
       "dislikes": [
         3

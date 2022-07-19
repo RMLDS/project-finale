@@ -200,7 +200,7 @@ const Question = ({ user }) => {
                     </> }
                     <br />
                     <hr />
-                    {user ? (author === user.decodedToken.id ? (
+                    { user ? (author === user.decodedToken.id ? (
                         <>
                             <div className='underQuestion'>
                             { editingQ ? null :
@@ -232,7 +232,7 @@ const Question = ({ user }) => {
                             {answers.map((answer, i) => {
                                 return <div key={i} className='answers'>
                                     <hr />
-                                    <p className='author'>Autorius: <b>{answer.author}</b> / {new Date(answer.answer_created).toLocaleString('sv')} / {answer.likes.length} <i className="bi bi-heart"></i> ' <i className="bi bi-heartbreak"></i> {answer.dislikes.length} { answer.answer_edited ? <span className='halfOp edited'><i className="bi bi-pencil"></i> Atsakymas buvo redaguotas</span> : null }</p>
+                                    <p className='author'>Autorius: <b>{answer.author}</b> / {new Date(answer.answer_created).toLocaleString('sv')} / {answer.likes.length} <i className="bi bi-heart"></i> ' <i className="bi bi-heartbreak"></i> {answer.dislikes.length} { answer.answer_edited ? <span className='halfOp edited'><i className="bi bi-pencil"></i> Atsakymas buvo redaguotas</span> : null } { answer.solving_answer ? <span className='author green edited'><i className="bi bi-check-circle-fill"></i> Teisingas atsakymas</span> : null }</p>
                                         { editingA === answer.id ?
                                         <div>
                                             <input type="text" value={answerEdit} onChange={e => setAnswer(e.target.value)} required/>

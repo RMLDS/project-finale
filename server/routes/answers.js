@@ -41,6 +41,7 @@ router.post('/:id', verifyToken, async (req, res) => {
                 text: answerData.text,
                 answer_created: timestamp,
                 answer_edited: false,
+                solving_answer: false,
                 likes: [],
                 dislikes: [],
                 removed: false,

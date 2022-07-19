@@ -31,33 +31,27 @@ const Home = ({ user }) => {
     };
 
     const filterData = (filterType) => {
-        let formattedData = data;
+        let formattedData = primaryData;
+        setData(formattedData);
         if (filterType === 'solved') {
             formattedData = formattedData.filter(question => question.solved === true);
             setFilter('solved');
-            setData(formattedData);
         } if (filterType === 'unsolved') {
             formattedData = formattedData.filter(question => question.solved === false);
             setFilter('unsolved');
-            setData(formattedData);
         } if (filterType === 'all') {
-            setData(primaryData);
             if (sort === 'new') {
-                setData(primaryData);
                 sortData('new');
-                // setFilter('all');
-            }  if (sort === 'old') {
-                setData(primaryData);
+                setFilter('all');
+            } if (sort === 'old') {
                 sortData('old');
-                // setFilter('all');
+                setFilter('all');
             } else {
-                setData(primaryData);
-                // setFilter('all');
+                setFilter('all');
             }
             console.log('sort is:', sort);
-            setFilter('all');
         }
-        
+        setData(formattedData);
     };
 
     const sortData = (sortType) => {
